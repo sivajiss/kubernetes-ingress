@@ -6,6 +6,49 @@ doctypes: ["concept"]
 toc: true
 ---
 
+## NGINX Ingress Controller 2.1.0
+
+05 Jan 2022
+
+FEATURES:
+* [2251](https://github.com/nginxinc/kubernetes-ingress/pull/2251) Enable setting mandatory and persistent in upstream healthchecks in VS and VSR.
+* [2241](https://github.com/nginxinc/kubernetes-ingress/pull/2241) Add support for NGINX App Protect DoS.
+* [2200](https://github.com/nginxinc/kubernetes-ingress/pull/2200) Add Alpine image with OpenTracing.
+* [2178](https://github.com/nginxinc/kubernetes-ingress/pull/2178) Support healthchecks in gRPC upstreams.
+* [2110](https://github.com/nginxinc/kubernetes-ingress/pull/2110) Support gRPC in the Upstreams of the virtual server resources.
+* [2149](https://github.com/nginxinc/kubernetes-ingress/pull/2149) Add metric about total number of TransportServers.
+* [2100](https://github.com/nginxinc/kubernetes-ingress/pull/2100) Add support for initContainers. Thanks to [Gunnar Scherf](https://github.com/g10f).
+* [1827](https://github.com/nginxinc/kubernetes-ingress/pull/1827) Add support for wildcard cert in VirtualServer resources. Thanks to [Simon Wachter](https://github.com/svvac).
+* [2107](https://github.com/nginxinc/kubernetes-ingress/pull/2107) Add option to download the NGINX Ingress Controller binary. Introduced a new `TARGET` `download` in the `Makefile` which can be used when building the NGINX Ingress Controller Docker image. With this option the Ingress Controller binary will be downloaded instead of built from source.
+
+IMPROVEMENTS:
+* [2044](https://github.com/nginxinc/kubernetes-ingress/pull/2044) Upload NGINX Ingress Controller binaries to release.
+* [2094](https://github.com/nginxinc/kubernetes-ingress/pull/2094) AP: update appolicies crd.
+* [2216](https://github.com/nginxinc/kubernetes-ingress/pull/2216) Add grpc_status to the logs.
+* [2237](https://github.com/nginxinc/kubernetes-ingress/pull/2237) Unbind app-protect from -preview-policies.
+* [2273](https://github.com/nginxinc/kubernetes-ingress/pull/2273) Make the resource comparison more informative in case of an error. [Andrey Karpov](https://github.com/ndk)
+
+FIXES:
+* [2267](https://github.com/nginxinc/kubernetes-ingress/pull/2267) Fix URI rewrite in VirtualServers and VirtualServerRoutes.
+* [2260](https://github.com/nginxinc/kubernetes-ingress/pull/2260) Check if refresh token is `undefined` and do not store it in this case. Thanks to [tippexs](https://github.com/tippexs) for the fix.
+* [2215](https://github.com/nginxinc/kubernetes-ingress/pull/2215) enableSnippets should not depend from enableCustomResources. Thanks to [Alessio Casco](https://github.com/AlessioCasco) for the fix.
+* [1934](https://github.com/nginxinc/kubernetes-ingress/pull/1934) AP: fix watch-namespace for NAP resources.
+* [2125](https://github.com/nginxinc/kubernetes-ingress/pull/2125) Allow empty string in server-tokens annotation for NGINX Plus.
+* [2042](https://github.com/nginxinc/kubernetes-ingress/pull/2042) Use release specific repo for NGINX Plus on Debian.
+
+CHANGES:
+* [2124](https://github.com/nginxinc/kubernetes-ingress/pull/2124) Apply -enable-snippets cli arg to Ingresses. This PR extends the existing -enable-snippets cli argument to apply to Ingress resources. If snippets are not enabled, the Ingress Controller will reject any Ingress resources with snippets annotations. Previously, the argument only applied to VirtualServer, VirtualServerRoute and TransportServer resources. Please Note: this is a breaking change. See the `UPGRADE` instructions below.
+* [2173](https://github.com/nginxinc/kubernetes-ingress/pull/2173) Update Debian to Bullseye.
+
+HELM CHART:
+* The version of the Helm chart is now 0.12.0.
+
+UPGRADE:
+* For NGINX, use the 2.1.0 images from our [DockerHub](https://hub.docker.com/r/nginx/nginx-ingress/tags?page=1&ordering=last_updated&name=2.1.0), [GitHub Container](https://github.com/nginxinc/kubernetes-ingress/pkgs/container/kubernetes-ingress) or [Amazon ECR Public Gallery](https://gallery.ecr.aws/nginx/nginx-ingress).
+* For NGINX Plus, use the 2.1.0 images from the F5 Container registry or build your own image using the 2.1.0 source code.
+* For Helm, use version 0.12.0 of the chart.
+* We changed the behaviour of snippets in Ingress resources by extending the existing -enable-snippets cli argument to apply to Ingress resources as well as VirtualServer, VirtualServerRoute and TransportServer resources. Because the default value of -enable-snippets is false, if you are using snippets in Ingress resources, you must explicitly set the -enable-snippets to true before upgrading the Ingress Controller, so that the new version of the Ingress Controller doesn't reject Ingresses with snippets annotations.
+
 ## NGINX Ingress Controller 2.0.3
 
 28 Oct 2021
