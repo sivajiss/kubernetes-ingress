@@ -39,6 +39,8 @@ FIXES:
 CHANGES:
 * [2124](https://github.com/nginxinc/kubernetes-ingress/pull/2124) Apply -enable-snippets cli arg to Ingresses. This PR extends the existing -enable-snippets cli argument to apply to Ingress resources. If snippets are not enabled, the Ingress Controller will reject any Ingress resources with snippets annotations. Previously, the argument only applied to VirtualServer, VirtualServerRoute and TransportServer resources. Please Note: this is a breaking change. See the `UPGRADE` instructions below.
 * [2173](https://github.com/nginxinc/kubernetes-ingress/pull/2173) Update Debian to Bullseye.
+* Update NGINX Plus version to R25.
+* Update NGINX version to 1.21.5.
 
 HELM CHART:
 * The version of the Helm chart is now 0.12.0.
@@ -48,6 +50,10 @@ UPGRADE:
 * For NGINX Plus, use the 2.1.0 images from the F5 Container registry or build your own image using the 2.1.0 source code.
 * For Helm, use version 0.12.0 of the chart.
 * We changed the behaviour of snippets in Ingress resources by extending the existing -enable-snippets cli argument to apply to Ingress resources as well as VirtualServer, VirtualServerRoute and TransportServer resources. Because the default value of -enable-snippets is false, if you are using snippets in Ingress resources, you must explicitly set the -enable-snippets to true before upgrading the Ingress Controller, so that the new version of the Ingress Controller doesn't reject Ingresses with snippets annotations.
+
+SUPPORTED PLATFORMS:
+
+We will provide technical support for the NGINX Ingress Controller on any Kubernetes platform that is currently supported by its provider and which passes the Kubernetes conformance tests. This release was fully tested on the following Kubernetes versions: 1.19-1.23.
 
 ## NGINX Ingress Controller 2.0.3
 
