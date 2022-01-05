@@ -15,7 +15,7 @@ FEATURES:
 * [2241](https://github.com/nginxinc/kubernetes-ingress/pull/2241) Add support for NGINX App Protect DoS.
 * [2200](https://github.com/nginxinc/kubernetes-ingress/pull/2200) Add Alpine image with OpenTracing.
 * [2178](https://github.com/nginxinc/kubernetes-ingress/pull/2178) Support healthchecks in gRPC upstreams.
-* [2110](https://github.com/nginxinc/kubernetes-ingress/pull/2110) Support gRPC in the Upstreams of the virtual server resources.
+* [2110](https://github.com/nginxinc/kubernetes-ingress/pull/2110) Support gRPC in the Upstreams of the virtual server resources. Particular thanks to [Chiyu Zhong](https://github.com/CatTail) for all their work.
 * [2149](https://github.com/nginxinc/kubernetes-ingress/pull/2149) Add metric about total number of TransportServers.
 * [2100](https://github.com/nginxinc/kubernetes-ingress/pull/2100) Add support for initContainers. Thanks to [Gunnar Scherf](https://github.com/g10f).
 * [1827](https://github.com/nginxinc/kubernetes-ingress/pull/1827) Add support for wildcard cert in VirtualServer resources. Thanks to [Simon Wachter](https://github.com/svvac).
@@ -26,7 +26,7 @@ IMPROVEMENTS:
 * [2094](https://github.com/nginxinc/kubernetes-ingress/pull/2094) AP: update appolicies crd.
 * [2216](https://github.com/nginxinc/kubernetes-ingress/pull/2216) Add grpc_status to the logs.
 * [2237](https://github.com/nginxinc/kubernetes-ingress/pull/2237) Unbind app-protect from -preview-policies.
-* [2273](https://github.com/nginxinc/kubernetes-ingress/pull/2273) Make the resource comparison more informative in case of an error. [Andrey Karpov](https://github.com/ndk)
+* [2273](https://github.com/nginxinc/kubernetes-ingress/pull/2273) Make the resource comparison more informative in case of an error. Thanks to [Andrey Karpov](https://github.com/ndk)
 
 FIXES:
 * [2267](https://github.com/nginxinc/kubernetes-ingress/pull/2267) Fix URI rewrite in VirtualServers and VirtualServerRoutes.
