@@ -49,9 +49,13 @@ NGINX Plus images are available through the F5 Container registry `private-regis
 |Alpine-based image | ``alpine:3.14`` | NGINX Plus JavaScript module | `nginx-ic/nginx-plus-ingress:2.1.0-alpine` |
 |Debian-based image | ``debian:bullseye-slim`` | NGINX Plus JavaScript module | `nginx-ic/nginx-plus-ingress:2.1.0` |
 |Debian-based image with OpenTracing | ``debian:bullseye-slim`` | NGINX Plus OpenTracing module, OpenTracing tracers for Jaeger, Zipkin and Datadog; NGINX Plus JavaScript module | `nginx-ic/nginx-plus-ingress:2.1.0-ot` |
-|Debian-based image with App Protect | ``debian:buster-slim`` | NGINX Plus App Protect module; NGINX Plus JavaScript module | `nginx-ic-nap/nginx-plus-ingress:2.1.0` |
+|Debian-based image with App Protect WAF|  ``debian:buster-slim`` | NGINX Plus App Protect WAF module; NGINX Plus JavaScript module | `nginx-ic-nap/nginx-plus-ingress:2.1.0` |
+|Debian-based image with App Protect DoS | ``debian:buster-slim`` | NGINX Plus App Protect DoS module; NGINX Plus JavaScript module |  |
+|Debian-based image with App Protect WAF and DoS | ``debian:buster-slim`` | NGINX Plus App Protect WAF and DoS modules; NGINX Plus JavaScript module | |
 |Ubi-based image | ``redhat/ubi8-minimal`` | NGINX Plus JavaScript module | `nginx-ic/nginx-plus-ingress:2.1.0-ubi` |
-|Ubi-based image with App Protect | ``registry.access.redhat.com/ubi7/ubi`` | NGINX Plus App Protect module; NGINX Plus JavaScript module | `nginx-ic-nap/nginx-plus-ingress:2.1.0-ubi` |
+|Ubi-based image with App Protect WAF | ``registry.access.redhat.com/ubi7/ubi`` | NGINX Plus App Protect WAF module; NGINX Plus JavaScript module | `nginx-ic-nap/nginx-plus-ingress:2.1.0-ubi` |
+|Ubi-based image with App Protect DoS | ``registry.access.redhat.com/ubi7/ubi`` | NGINX Plus App Protect DoS module; NGINX Plus JavaScript module | |
+|Ubi-based image with App Protect WAF and DoS | ``registry.access.redhat.com/ubi7/ubi`` | NGINX Plus App Protect WAF and DoS modules; NGINX Plus JavaScript module |  |
 {{% /table %}}
 
 We also provide NGINX Plus images through the AWS Marketplace. Please see [Using the AWS Marketplace Ingress Controller Image](/nginx-ingress-controller/installation/using-aws-marketplace-image.md) for details on how to set up the required IAM resources in your EKS cluster.
