@@ -8,7 +8,21 @@ toc: true
 
 ## NGINX Ingress Controller 2.1.0
 
-05 Jan 2022
+06 Jan 2022
+
+OVERVIEW:
+
+Support for NGINX App Protect Denial of Service protection with NGINX Ingress Controller.
+More information about [NGINX App Protect DoS](https://www.nginx.com/products/nginx-app-protect/denial-of-service/)
+Examples for configuring NGINX App Protect DoS with NGINX Ingress Controller can be found [here](https://github.com/nginxinc/kubernetes-ingress/tree/release-2.1/examples/appprotect-dos)
+
+Full support for gRPC services using the NGINX Ingress Controller [VirtualServer and VirtualServerRoute](https://docs.nginx.com/nginx-ingress-controller/configuration/virtualserver-and-virtualserverroute-resources) custom resource definitions.  This makes configuring and supporting gRPC services much easier, giving a simple YAML configuration and removing the need for snippets.
+Resource definition examples for gRPC can be found [here](https://github.com/nginxinc/kubernetes-ingress/tree/release-2.1/examples/custom-resources/grpc-upstreams)
+
+Implementation of NGINX persistent health checks in VirtualServer and VirtualServerRoute to further reduce interruptions to your service traffic as configuration changes continuously happen in your dynamic Kubernetes environment(s).  NGINX Ingress Controller previously supported `mandatory` health checks (not forwarding traffic until your service pods were healthy) only with the Ingress resource. This has been extended to the VirtualServer and VirtualServerRoute custom resource definitions and augmented to include `persistent`.
+Mandatory health checks can be marked as persistent, so that the previous state is remembered when reloading configuration. When combined with the slow-start parameter, it gives a new service pod more time to connect to databases and “warm up” before being asked to handle their full share of traffic.
+See the settings [here](https://docs.nginx.com/nginx-ingress-controller/configuration/virtualserver-and-virtualserverroute-resources/#upstreamhealthcheck)
+More about the [NGINX Plus mandatory and persistent health check features](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-health-check/#mandatory-health-checks)
 
 FEATURES:
 * [2251](https://github.com/nginxinc/kubernetes-ingress/pull/2251) Enable setting mandatory and persistent in upstream healthchecks in VS and VSR.
